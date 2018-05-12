@@ -8,11 +8,24 @@ namespace lab9
 {
     class ReaderPro : Reader
     {
-        public string status { get; set; }
+        private string _Status;
+        public string Status {
+            get
+            {
+                if (String.IsNullOrEmpty(_Status))
+                    throw new Exception("Статус не может быть пустым");
+                else
+                    return _Status;
+            }
+            set
+            {
+                _Status = value;
+            }
+        }
 
-        public ReaderPro(string status, int ID_Reader, string Surname, string Name, string Patronymic, string Gender, int Phone)  : base (ID_Reader, Surname, Name, Patronymic, Gender, Phone)
+        public ReaderPro(string Status, int ReaderID, string Surname, string Name, string Patronymic, string Gender, int Phone)  : base (ReaderID, Surname, Name, Patronymic, Gender, Phone)
         {
-            this.status = status;
+            this.Status = Status;
             st = 1;
         }
 
@@ -20,7 +33,7 @@ namespace lab9
         {
             Console.WriteLine("Информация о 'вип' читателе: ");
             Console.WriteLine("    Код Читателя: {0}\n    Фамилия: {1}\n    Имя: {2} \n    Отчество: {3}\n    Пол: {4}\n    Телефон: {5}\n    Статус: {6}\n    Штраф: {7}%\n",
-                ID_Reader, Surname, Name, Patronymic, Gender, Phone, status, st*100);
+                ReaderID, Surname, Name, Patronymic, Gender, Phone, Status, st*100);
         }
     }
 }

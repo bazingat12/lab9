@@ -8,7 +8,7 @@ namespace lab9
 {
     interface IReader
     {
-         int ID_Reader
+         int ReaderID
         { get;}
          string Surname
         { get;}
@@ -18,7 +18,7 @@ namespace lab9
         { get;}
          string Gender
         { get;}
-         int Phone
+        int Phone
         { get;}
          double st
         { get;}
