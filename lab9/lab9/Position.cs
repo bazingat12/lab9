@@ -8,19 +8,44 @@ namespace lab9
 {
     class Position
     {
-       public int ID_Position
-        { get; set; }
+        private int _PositionID;
+        private string _PositionName;
+
+       public int PositionID
+        { get
+            {
+                return _PositionID;
+            }
+            set
+            {
+                if (value > 0)
+                    _PositionID = value;
+                else
+                    Console.WriteLine("Неподустимый код должности");
+            }
+        }
+
         public string PositionName
-        { get; set; }
-        public Position(int ID_Position, string PositionName)
+        { get
+            {
+                if (String.IsNullOrEmpty(_PositionName))
+                    throw new Exception("Должность не может быть пустой");
+                else
+                    return _PositionName;
+            }
+                set
+            {
+                _PositionName = value;
+            }
+        }
+        public Position(int PositionID, string PositionName)
         {
-            this.ID_Position = ID_Position;
+            this.PositionID = PositionID;
             this.PositionName = PositionName;
         }
 
         public virtual void Info()
         {
-           // Console.WriteLine("Информация о должности: ");
             Console.WriteLine("    Должность: {0}\n ",
                 PositionName);
         }
