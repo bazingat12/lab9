@@ -8,19 +8,58 @@ namespace lab9
 {
     class Exemplar 
     {
-        public int ID_Exemplar
-        { get; set; }
+        private int _ExemplarID;
+        private DateTime _Date;
+        private string _Publisher;
+
+        public int ExemplarID
+        { get
+            {
+                return _ExemplarID;
+            }
+                set
+            {
+                if (value > 0)
+                    _ExemplarID = value;
+                else
+                    Console.WriteLine("Неподустимый код экземпляра");
+            }
+                }
         public Book Book1
         { get; set; }
-        public DateTime Data
-        { get; set; }
-        public string Publisher
-        { get; set; }
-        public Exemplar(int ID_Exemplar, Book Book1, DateTime Data, string Publisher)
+        public DateTime Date
         {
-            this.ID_Exemplar = ID_Exemplar;
+            get
+            {
+                if (_Date == null)
+                    throw new Exception("Укажите дату печати");
+                else
+                    return _Date;
+            }
+                set
+            {
+                _Date = value;
+            }
+                }
+        public string Publisher
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(_Publisher))
+                    throw new Exception("Издатель не может быть пустым");
+                else
+                    return _Publisher;
+            }
+                set
+            {
+                _Publisher = value;
+            }
+                }
+        public Exemplar(int ExemplarID, Book Book1, DateTime Date, string Publisher)
+        {
+            this.ExemplarID = ExemplarID;
             this.Book1 = Book1;
-            this.Data = Data;
+            this.Date = Date;
             this.Publisher = Publisher;
         }
         public virtual void Info()
@@ -28,7 +67,7 @@ namespace lab9
             Book1.Info();
             Console.WriteLine("Информация о экземпляре: ");
             Console.WriteLine("    Код экземпляра: {0}\n    Дата печати:    {1}\n    Издательство: {2}",
-                ID_Exemplar, Data, Publisher);
+                ExemplarID, Date, Publisher);
         }
     }
 }
