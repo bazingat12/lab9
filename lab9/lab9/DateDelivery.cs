@@ -8,10 +8,40 @@ namespace lab9
 {
     class DateDelivery : Delivery
     {
+        private DateTime _StartOfDelivery;
+        private DateTime _EndOfDelivery;
+
+
         public DateTime StartOfDelivery
-        { get; set; }
+        {
+            get
+            {
+                if (_StartOfDelivery == null)
+                    throw new Exception("Укажите дату выдачи");
+                else
+                    return _StartOfDelivery;
+            }
+                set
+            {
+                _StartOfDelivery = value;
+            }
+                }
+
         public DateTime EndOfDelivery
-        { get; set; }
+        {
+            get
+            {
+                if (_EndOfDelivery == null)
+                    throw new Exception("Укажите дату возврата");
+                else
+                    return _EndOfDelivery;
+            }
+            set
+            {
+                _EndOfDelivery = value;
+            }
+        }
+
         public DateDelivery(int ID_Delivery, DateTime Data, Employee EmployeeDelivery, Reader Reader1, Exemplar Exemplar1, DateTime StartofDelivery, DateTime EndofDelivery) :
             base(ID_Delivery, Data, EmployeeDelivery, Reader1, Exemplar1)
         {

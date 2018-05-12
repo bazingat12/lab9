@@ -8,24 +8,107 @@ namespace lab9
 {
     class Employee 
     {
-        public int ID_Employee
-        { get; set; }
+        private int _EmployeeID;
+        private string _Surname;
+        private string _Name;
+        private string _Patronymic;
+        private int _INN;
+        private byte _Experience;
+
+        public int EmployeeID
+        {
+            get
+            {
+                return _EmployeeID;
+            }
+                set
+            {
+                if (value > 0)
+                    _EmployeeID = value;
+                else
+                    Console.WriteLine("Неподустимый код сотрудника");
+            }
+                }
         public Position EmployeePosition
         { get; set; }
-        public string Surname
-        { get; set; }
-        public string Name
-        { get; set; }
-        public string Patronymic
-        { get; set; }
-        public int INN
-        { get; set; }
-        public byte Experience
-        { get; set; }
 
-        public Employee (int ID_Employee, Position EmployeePosition, string Surname, string Name, string Patronymic, int INN, byte Experience, string City, string Street, string home1)
+        public string Surname
         {
-            this.ID_Employee = ID_Employee;
+            get
+            {
+                if (String.IsNullOrEmpty(_Surname))
+                    throw new Exception("Фамилия не может быть пустой");
+                else
+                    return _Surname;
+            }
+                set
+            {
+                _Surname = value;
+            }
+        }
+        public string Name
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(_Name))
+                    throw new Exception("Имя не может быть пустым");
+                else
+                    return _Name;
+            }
+            set
+            {
+                _Name = value;
+            }
+        }
+
+        public string Patronymic
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(_Patronymic))
+                    throw new Exception("Отчество не может быть пустым");
+                else
+                    return _Patronymic;
+            }
+            set
+            {
+                _Patronymic = value;
+            }
+        }
+
+        public int INN
+        {
+            get
+            {
+                return _INN;
+            }
+                set
+            {
+                if (value > 0)
+                    _INN = value;
+                else
+                    Console.WriteLine("Неподустимый ИНН сотрудника");
+            }
+                }
+
+        public byte Experience
+        {
+            get
+            {
+                return _Experience;
+            }
+                set
+            {
+                if (value >= 0)
+                    _Experience = value;
+                else
+                    Console.WriteLine("Неподустимый стаж работы");
+            }
+        }
+
+        public Employee (int EmployeeID, Position EmployeePosition, string Surname, string Name, string Patronymic, int INN, byte Experience, string City, string Street, string home1)
+        {
+            this.EmployeeID = EmployeeID;
             this.EmployeePosition = EmployeePosition;
             this.Surname = Surname;
             this.Name = Name;
@@ -38,7 +121,7 @@ namespace lab9
             Console.WriteLine("Сотрудник: ");
             Console.WriteLine("    Код сотрудника: {0}\n    Фамилия: {1}\n    Имя: {2}\n    Отчество: "
                 + "{3}\n    ИНН: {4}\n    Стаж работы: {5}\n",
-                ID_Employee, Surname, Name, Patronymic, INN, Experience);
+                EmployeeID, Surname, Name, Patronymic, INN, Experience);
                EmployeePosition.Info();
         }
     }

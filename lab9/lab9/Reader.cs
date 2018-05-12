@@ -99,9 +99,9 @@ namespace lab9
                 set
             {
                 if (value > 0)
-                    _ReaderID = value;
+                    _Phone = value;
                 else
-                    Console.WriteLine("Неподустимый код читателя");
+                    Console.WriteLine("Неподустимый номер читателя");
             }
         }
         public virtual double st
