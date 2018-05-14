@@ -9,7 +9,6 @@ namespace lab9
     class Delivery
     {
         private int _DeliveryID;
-        private DateTime _Date;
 
         public int DeliveryID
         {
@@ -25,41 +24,27 @@ namespace lab9
                     Console.WriteLine("Неподустимый код выдачи");
             }
         }
-        public DateTime Date
-        {
-            get
-            {
-                if (_Date == null)
-                    throw new Exception("Укажите дату выдачи");
-                else
-                    return _Date;
-            }
-            set
-            {
-                _Date = value;
-            }
-        }
+
         public Employee EmployeeDelivery
         { get; set; }
-        public IReader Reader1
+        public IReader ReaderDelivery
         { get; set; }
-        public Exemplar Exemplar1
+        public Exemplar ExemplarDelivery
         { get; set; }
-        public Delivery(int DeliveryID, DateTime Date, Employee EmployeeDelivery, IReader Reader1, Exemplar Exemplar1)
+        public Delivery(int DeliveryID, Employee EmployeeDelivery, IReader ReaderDelivery, Exemplar ExemplarDelivery)
         {
             this.DeliveryID = DeliveryID;
-            this.Date = Date;
             this.EmployeeDelivery = EmployeeDelivery;
-            this.Reader1 = Reader1;
-            this.Exemplar1 = Exemplar1;
+            this.ReaderDelivery = ReaderDelivery;
+            this.ExemplarDelivery = ExemplarDelivery;
         }
 
         public virtual void Info()
         {
-            Console.WriteLine("Код выдачи: {0} , Дата:\n", DeliveryID, Date);
+            Console.WriteLine("Код выдачи: {0}\n", DeliveryID);
             EmployeeDelivery.Info();
-            Reader1.Info();
-            Exemplar1.Info();
+            ReaderDelivery.Info();
+            ExemplarDelivery.Info();
         }
     }
 }

@@ -24,7 +24,7 @@ namespace lab9
                 if (value > 0)
                     _BookID = value;
                 else
-                    Console.WriteLine("Неподустимый код книги");
+                    Console.WriteLine("Недопустимый код книги");
             }
                 }
 

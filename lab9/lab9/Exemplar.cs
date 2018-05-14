@@ -25,7 +25,7 @@ namespace lab9
                     Console.WriteLine("Неподустимый код экземпляра");
             }
                 }
-        public Book Book1
+        public Book ExemplarBook
         { get; set; }
         public DateTime Date
         {
@@ -58,13 +58,13 @@ namespace lab9
         public Exemplar(int ExemplarID, Book Book1, DateTime Date, string Publisher)
         {
             this.ExemplarID = ExemplarID;
-            this.Book1 = Book1;
+            this.ExemplarBook = ExemplarBook;
             this.Date = Date;
             this.Publisher = Publisher;
         }
         public virtual void Info()
         {
-            Book1.Info();
+            ExemplarBook.Info();
             Console.WriteLine("Информация о экземпляре: ");
             Console.WriteLine("    Код экземпляра: {0}\n    Дата печати:    {1}\n    Издательство: {2}",
                 ExemplarID, Date, Publisher);

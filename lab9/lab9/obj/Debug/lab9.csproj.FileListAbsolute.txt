@@ -1,6 +1,0 @@
-F:\labs\lab9\lab9\lab9\bin\Debug\lab9.exe.config
-F:\labs\lab9\lab9\lab9\bin\Debug\lab9.exe
-F:\labs\lab9\lab9\lab9\bin\Debug\lab9.pdb
-F:\labs\lab9\lab9\lab9\obj\Debug\lab9.csprojResolveAssemblyReference.cache
-F:\labs\lab9\lab9\lab9\obj\Debug\lab9.exe
-F:\labs\lab9\lab9\lab9\obj\Debug\lab9.pdb

@@ -12,7 +12,7 @@ namespace lab9
         private string _Surname;
         private string _Name;
         private string _Patronymic;
-        private int _INN;
+        private string _INN;
         private byte _Experience;
 
         public int EmployeeID
@@ -76,20 +76,28 @@ namespace lab9
             }
         }
 
-        public int INN
+        public string INN
         {
+            set
+            {
+                if (value.Count() != 11)
+                    return;
+                foreach (char ch in value)
+                {
+                    if (!Char.IsDigit(ch))
+                        return;
+                }
+                _INN = value;
+            }
+
             get
             {
-                return _INN;
-            }
-                set
-            {
-                if (value > 0)
-                    _INN = value;
+                if (String.IsNullOrEmpty(_INN))
+                    throw new Exception(" ");
                 else
-                    Console.WriteLine("Неподустимый ИНН сотрудника");
+                    return _INN;
             }
-                }
+        }
 
         public byte Experience
         {
@@ -106,7 +114,7 @@ namespace lab9
             }
         }
 
-        public Employee (int EmployeeID, Position EmployeePosition, string Surname, string Name, string Patronymic, int INN, byte Experience, string City, string Street, string home1)
+        public Employee (int EmployeeID, Position EmployeePosition, string Surname, string Name, string Patronymic, string INN, byte Experience, string City, string Street, string home1)
         {
             this.EmployeeID = EmployeeID;
             this.EmployeePosition = EmployeePosition;

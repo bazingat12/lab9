@@ -18,7 +18,7 @@ namespace lab9
         { get;}
          string Gender
         { get;}
-        int Phone
+        string Phone
         { get;}
          double st
         { get;}

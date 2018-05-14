@@ -23,7 +23,7 @@ namespace lab9
             }
         }
 
-        public ReaderPro(string Status, int ReaderID, string Surname, string Name, string Patronymic, string Gender, int Phone)  : base (ReaderID, Surname, Name, Patronymic, Gender, Phone)
+        public ReaderPro(string Status, int ReaderID, string Surname, string Name, string Patronymic, string Gender, string Phone)  : base (ReaderID, Surname, Name, Patronymic, Gender, Phone)
         {
             this.Status = Status;
             st = 1;
